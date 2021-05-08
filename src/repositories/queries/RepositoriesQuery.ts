@@ -11,7 +11,7 @@ export const GET_REPOSITORIES = gql`
 					... on Repository {
 						name
 						forkCount
-						urls
+						url
 						stargazerCount
 					}
 				}
