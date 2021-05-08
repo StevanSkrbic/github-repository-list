@@ -30,9 +30,17 @@
     "prettier": "prettier -c src/",
     "prettier:apply": "prettier --write --loglevel silent src/**/*.{ts,tsx}",
     "apollo:generate": "apollo codegen:generate --target typescript --excludes=node_modules/* --includes=**/**/queries/*.ts --endpoint https://api.github.com/graphql --header \"Authorization: bearer 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\" --tagName=gql --outputFlat src/models --passthroughCustomScalars --customScalarsPrefix Github",
-    "release": "release-it --disable-metrics --ci"
+    "release": "release-it --disable-metrics --ci",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^6.2.9",
+    "@storybook/addon-essentials": "^6.2.9",
+    "@storybook/addon-links": "^6.2.9",
+    "@storybook/node-logger": "^6.2.9",
+    "@storybook/preset-create-react-app": "^3.1.7",
+    "@storybook/react": "^6.2.9",
     "@types/mui-datatables": "^3.7.3",
     "@types/styled-components": "^5.1.9",
     "eslint": "^7.26.0",
@@ -126,6 +134,14 @@
       {
         "files": [
           "**/*.*",
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      },
+      {
+        "files": [
           "**/*.stories.*"
         ],
         "rules": {
