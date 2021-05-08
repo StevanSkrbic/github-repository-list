@@ -35,7 +35,9 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "prettier": "^2.2.1"
+    "husky": "^6.0.0",
+    "prettier": "^2.2.1",
+    "pretty-quick": "^3.1.0"
   },
   "eslintConfig": {
     "env": {
@@ -129,6 +131,17 @@
     "trailingComma": "all",
     "tabWidth": 4,
     "useTabs": true
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.+(ts|tsx)": [
+      "pretty-quick --staged",
+      "eslint --fix"
+    ]
   },
   "browserslist": {
     "production": [
