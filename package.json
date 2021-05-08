@@ -25,7 +25,8 @@
     "lint": "eslint src/",
     "prettier": "prettier -c src/",
     "prettier:apply": "prettier --write --loglevel silent src/**/*.{ts,tsx}",
-    "apollo:generate": "apollo codegen:generate --target typescript --excludes=node_modules/* --includes=**/**/queries/*.ts --endpoint https://api.github.com/graphql --header \"Authorization: bearer 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\" --tagName=gql --outputFlat src/models --passthroughCustomScalars --customScalarsPrefix Github"
+    "apollo:generate": "apollo codegen:generate --target typescript --excludes=node_modules/* --includes=**/**/queries/*.ts --endpoint https://api.github.com/graphql --header \"Authorization: bearer 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\" --tagName=gql --outputFlat src/models --passthroughCustomScalars --customScalarsPrefix Github",
+    "release": "release-it"
   },
   "devDependencies": {
     "eslint": "^7.26.0",
@@ -40,7 +41,8 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "husky": "^6.0.0",
     "prettier": "^2.2.1",
-    "pretty-quick": "^3.1.0"
+    "pretty-quick": "^3.1.0",
+    "release-it": "^14.6.1"
   },
   "eslintConfig": {
     "env": {
