@@ -1,11 +1,15 @@
 import { Grid } from '@material-ui/core';
 
 import Repositories from 'repositories/Repositories';
+import ThemeProvider, { GlobalStyles } from 'theme/theme';
 
 export default () => {
 	return (
-		<Grid container justify="center">
-			<Repositories />
-		</Grid>
+		<ThemeProvider isDark={false}>
+			<GlobalStyles />
+			<Grid container justify="center">
+				<Repositories />
+			</Grid>
+		</ThemeProvider>
 	);
 };
