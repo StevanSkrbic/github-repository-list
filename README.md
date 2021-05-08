@@ -68,6 +68,10 @@ or even better using a semantic approach for imports
 The Storybook components are built based on the [atomic design principles](https://bradfrost.com/blog/post/atomic-web-design/). The components are divided into different types (atoms, particles, molecules, etc).
 Each component can be visualized and manually tested with Storybook.
 
+### Atomic commits Principles
+
+This projects uses Atomic commits Principles - manually: [atomic commits](https://en.wikipedia.org/wiki/Atomic_commit)
+
 ## Available Scripts
 
 In the project directory, you can run:
