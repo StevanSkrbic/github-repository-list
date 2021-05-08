@@ -33,7 +33,7 @@
     "lint": "eslint src/",
     "prettier": "prettier -c src/",
     "prettier:apply": "prettier --write --loglevel silent src/**/*.{ts,tsx}",
-    "apollo:generate": "apollo codegen:generate --target typescript --excludes=node_modules/* --includes=**/**/queries/*.ts --endpoint https://api.github.com/graphql --header \"Authorization: bearer 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\" --tagName=gql --outputFlat src/models --passthroughCustomScalars --customScalarsPrefix Github",
+    "apollo:generate": "apollo codegen:generate --target typescript --excludes=node_modules/* --includes=**/**/queries/*.ts --endpoint https://api.github.com/graphql --header \"Authorization: bearer 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\" --tagName=gql --outputFlat src/models --passthroughCustomScalars --customScalarsPrefix Github",
     "release": "release-it --disable-metrics --ci",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
