@@ -97,14 +97,14 @@ export default () => {
 		if (error) return <div>Error loading repositories</div>;
 		return <Table data={repositories} columns={getTableColumns(repositories)} title="Repositories" />;
 	};
-
+	console.log(repositories);
 	return (
 		<>
 			<Grid item xs={10}>
 				{renderTableSection()}
 			</Grid>
 			<Grid item xs={10}>
-				{loading && repositories?.length !== 0 && <div>{loadingText}</div>}
+				{loading && repositories && <div>{loadingText}</div>}
 				{!loading && <ButtonWithTheme onClick={handleLoadMore}>Load more</ButtonWithTheme>}
 			</Grid>
 		</>
