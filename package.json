@@ -19,13 +19,116 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test"
+    "test": "react-scripts test",
+    "lint": "eslint src/",
+    "prettier": "prettier -c src/",
+    "prettier:apply": "prettier --write --loglevel silent src/**/*.{ts,tsx}"
+  },
+  "devDependencies": {
+    "eslint": "^7.26.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-typescript": "^2.4.0",
+    "eslint-plugin-cypress": "^2.11.3",
+    "eslint-plugin-graphql": "^4.0.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.2.1"
   },
   "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es6": true,
+      "jest": true
+    },
+    "globals": {
+      "debug": true
+    },
+    "parser": "babel-eslint",
+    "settings": {
+      "import/resolver": {
+        "typescript": {}
+      }
+    },
     "extends": [
+      "plugin:react/recommended",
+      "airbnb",
+      "airbnb/hooks",
+      "prettier",
+      "plugin:prettier/recommended",
+      "plugin:cypress/recommended",
       "react-app",
       "react-app/jest"
+    ],
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "ecmaVersion": 2018,
+      "sourceType": "module"
+    },
+    "plugins": [
+      "react",
+      "prettier"
+    ],
+    "rules": {
+      "camelcase": "off",
+      "no-mixed-operators": "off",
+      "react/jsx-filename-extension": [
+        2,
+        {
+          "extensions": [
+            ".ts",
+            ".tsx"
+          ]
+        }
+      ],
+      "import/extensions": [
+        "error",
+        "ignorePackages",
+        {
+          "ts": "never",
+          "tsx": "never"
+        }
+      ],
+      "prettier/prettier": "error",
+      "react-hooks/exhaustive-deps": "warn",
+      "react/jsx-props-no-spreading": "off",
+      "react/jsx-uses-react": "off",
+      "react/react-in-jsx-scope": "off",
+      "import/prefer-default-export": "off",
+      "react/no-array-index-key": "warn",
+      "no-console": [
+        "warn",
+        {
+          "allow": [
+            "error"
+          ]
+        }
+      ]
+    },
+    "overrides": [
+      {
+        "files": [
+          "**/*.*",
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
     ]
+  },
+  "prettier": {
+    "arrowParens": "avoid",
+    "printWidth": 120,
+    "quoteProps": "consistent",
+    "singleQuote": true,
+    "trailingComma": "all",
+    "tabWidth": 4,
+    "useTabs": true
   },
   "browserslist": {
     "production": [

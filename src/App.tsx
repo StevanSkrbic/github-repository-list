@@ -1,1 +1,1 @@
-export default () => <div>Repository list</div>
+export default () => <div>Repository list</div>;
