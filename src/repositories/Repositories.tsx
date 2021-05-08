@@ -93,7 +93,7 @@ export default () => {
 
 	const repositories: (RepositoriesData_search_edges | null)[] | null | undefined = data?.search.edges;
 	const renderTableSection = (): ReactElement => {
-		if (loading && !repositories?.length) return <div>Loading...</div>;
+		if (loading && !repositories?.length) return <div data-testid="loading-text">Loading...</div>;
 		if (error) return <div>Error loading repositories</div>;
 		return <Table data={repositories} columns={getTableColumns(repositories)} title="Repositories" />;
 	};

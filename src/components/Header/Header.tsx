@@ -13,6 +13,7 @@ export default ({ isDark, handleSwitchTheme }: HeaderProps) => (
 			</Grid>
 			<Grid>
 				<Switch checked={isDark} onChange={handleSwitchTheme} />
+				<span>Switch theme</span>
 			</Grid>
 		</Grid>
 	</Grid>
