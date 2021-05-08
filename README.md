@@ -1,4 +1,4 @@
-# Github repositories table
+# Github repository list
 
 This is a demo project. It is a simple GITHUB repository table list (with all the features that MUI Datatables gives us built-in) 
 and that can change the UI theme and have pagination based on Load more UX pattern.
