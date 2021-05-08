@@ -1,6 +1,7 @@
 import { ReactElement } from 'react';
 import { useQuery } from '@apollo/client';
 import { Grid, Button } from '@material-ui/core';
+import styled from 'styled-components';
 
 // Domain
 import { RepositoriesData, RepositoriesData_search_edges } from 'models/RepositoriesData';
@@ -53,6 +54,10 @@ const getTableColumns = (repositories: any) => [
 	},
 ];
 
+const ButtonWithTheme = styled(Button)`
+	background-color: ${props => props.theme.buttonBackground};
+	color: ${props => props.theme.buttonText};
+`;
 const loadingText = 'Loading...';
 export default () => {
 	const { data, loading, error, fetchMore } = useQuery<RepositoriesData>(GET_REPOSITORIES, {
@@ -100,7 +105,7 @@ export default () => {
 			</Grid>
 			<Grid item xs={10}>
 				{loading && repositories?.length !== 0 && <div>{loadingText}</div>}
-				{!loading && <Button onClick={handleLoadMore}>Load more</Button>}
+				{!loading && <ButtonWithTheme onClick={handleLoadMore}>Load more</ButtonWithTheme>}
 			</Grid>
 		</>
 	);
