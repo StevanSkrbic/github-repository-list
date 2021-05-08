@@ -29,7 +29,7 @@
     "lint": "eslint src/",
     "prettier": "prettier -c src/",
     "prettier:apply": "prettier --write --loglevel silent src/**/*.{ts,tsx}",
-    "apollo:generate": "apollo codegen:generate --target typescript --excludes=node_modules/* --includes=**/**/queries/*.ts --endpoint https://api.github.com/graphql --header \"Authorization: bearer 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\" --tagName=gql --outputFlat src/models --passthroughCustomScalars --customScalarsPrefix Github",
+    "apollo:generate": "apollo codegen:generate --target typescript --excludes=node_modules/* --includes=**/**/queries/*.ts --endpoint https://api.github.com/graphql --header \"Authorization: bearer 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\" --tagName=gql --outputFlat src/models --passthroughCustomScalars --customScalarsPrefix Github",
     "release": "release-it --disable-metrics --ci"
   },
   "devDependencies": {

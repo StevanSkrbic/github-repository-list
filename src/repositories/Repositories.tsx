@@ -1,6 +1,6 @@
 import { ReactElement } from 'react';
 import { useQuery } from '@apollo/client';
-import { Grid } from '@material-ui/core';
+import { Grid, Button } from '@material-ui/core';
 
 // Domain
 import { RepositoriesData, RepositoriesData_search_edges } from 'models/RepositoriesData';
@@ -53,8 +53,38 @@ const getTableColumns = (repositories: any) => [
 	},
 ];
 
+const loadingText = 'Loading...';
 export default () => {
-	const { data, loading, error } = useQuery<RepositoriesData>(GET_REPOSITORIES);
+	const { data, loading, error, fetchMore } = useQuery<RepositoriesData>(GET_REPOSITORIES, {
+		variables: { after: null },
+		notifyOnNetworkStatusChange: true,
+	});
+
+	const handleLoadMore = (): void => {
+		if (data?.search.pageInfo) {
+			const { endCursor } = data.search.pageInfo;
+
+			fetchMore({
+				variables: { after: endCursor },
+				updateQuery: (prevResults, { fetchMoreResult }) => {
+					if (!fetchMoreResult) {
+						return prevResults;
+					}
+
+					if (prevResults.search.edges && fetchMoreResult.search.edges) {
+						return {
+							search: {
+								...prevResults.search,
+								edges: [...prevResults.search.edges, ...fetchMoreResult.search.edges],
+							},
+						};
+					}
+
+					return prevResults;
+				},
+			});
+		}
+	};
 
 	const repositories: (RepositoriesData_search_edges | null)[] | null | undefined = data?.search.edges;
 	const renderTableSection = (): ReactElement => {
@@ -67,6 +97,10 @@ export default () => {
 		<>
 			<Grid item xs={10}>
 				{renderTableSection()}
+			</Grid>
+			<Grid item xs={10}>
+				{loading && repositories?.length !== 0 && <div>{loadingText}</div>}
+				{!loading && <Button onClick={handleLoadMore}>Load more</Button>}
 			</Grid>
 		</>
 	);
