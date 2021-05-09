@@ -128,6 +128,8 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 ### `npm apollo:generate`
 
 Generate static types for GraphQL queries. Can use the published schema in the Apollo registry or a downloaded schema
+This script also uses `dotenv-cli` and `cross-var` to read and consume the .env files environment variables and to 
+substitute them into our `package.json` scripts across development platforms.
 
 ### `npm prettier`
 ### `prettier:apply`
