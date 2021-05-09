@@ -97,7 +97,7 @@ export default () => {
 		if (error) return <div>Error loading repositories</div>;
 		return <Table data={repositories} columns={getTableColumns(repositories)} title="Repositories" />;
 	};
-	console.log(repositories);
+
 	return (
 		<>
 			<Grid item xs={10}>

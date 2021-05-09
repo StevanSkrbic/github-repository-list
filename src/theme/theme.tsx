@@ -33,7 +33,7 @@ export enum ThemeMode {
 	DARK = 'dark',
 	LIGHT = 'light',
 }
-type ThemeModeModes = ThemeMode.DARK | ThemeMode.LIGHT;
+
 type ThemeColors = {
 	[ThemeMode.DARK]: {
 		background: string;
