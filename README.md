@@ -3,6 +3,42 @@
 This is a demo project. It is a simple GITHUB repository table list (with all the features that MUI Datatables gives us built-in) 
 and that can change the UI theme and have pagination based on Load more UX pattern.
 
+## Requirements
+
+Add a `.env.local` with this value:
+`.env.local` is used for variables that developer uses while developing in local with `npm start`.
+Only on running `npm start` those varibles are reinitialized.
+
+```
+REACT_APP_GITHUB_TOKEN=<GITHUB_TOKEN>
+```
+
+- [authenticating-with-graphql](https://docs.github.com/en/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql)
+Where ```<GITHUB_TOKEN>``` should be generated following the steps in ["Creating a personal access token"](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)
+to create a token on Github.
+The scopes we require for the type of data we are trying to request are in the Repository scopes. 
+But, in order to be sure to match all the behavior of the GraphQL Explorer, request the following scopes:
+
+```
+user
+public_repo
+repo
+repo_deployment
+repo:status
+read:repo_hook
+read:org
+read:public_key
+read:gpg_key
+```
+
+## Non-specific environmetal variables
+
+Non-specific environmental variables are stored in `.env` file.
+
+```
+SKIP_PREFLIGHT_CHECK=true
+```
+
 ## Technologies
 
 This project uses:
