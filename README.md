@@ -157,3 +157,18 @@ application boots up, Cypress runs it tests and even does video recording for an
 coverage report.
 
 
+## Docker
+
+### Development Environment
+
+Run app in the Docker Container:
+```
+docker run \
+    -it \
+    --rm \
+    -v ${PWD}:/src \
+    -v /src/node_modules \
+    -p 3001:3000 \
+    -e CHOKIDAR_USEPOLLING=true \
+    repositories
+```
