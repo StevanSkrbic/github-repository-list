@@ -172,3 +172,11 @@ docker run \
     -e CHOKIDAR_USEPOLLING=true \
     repositories
 ```
+
+## CI & CD
+
+This project uses Github Actions for Continuous Integration `CI` workflow.
+
+Workflow:
+- Runs on Pull Requests to the `main` branch
+   - It will test Pull Request 
